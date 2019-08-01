@@ -1,11 +1,13 @@
     import psycopg2
+    import os
+    
     from psycopg2 import Error
     try:
-        connection = psycopg2.connect(user = "postgres",
-                                      password = "pass@#29",
-                                      host = "127.0.0.1",
-                                      port = "5432",
-                                      database = "postgres_db")
+        connection = psycopg2.connect(user = os.environ['USER'],
+                                      password = os.environ['PASS'],
+                                      host = os.environ['HOST'],
+                                      port = os.environ['PORT'],
+                                      database = os.environ['DB'])
         cursor = connection.cursor()
         
         create_table_query = '''CREATE TABLE mobile
