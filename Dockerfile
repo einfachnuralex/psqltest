@@ -6,4 +6,4 @@ RUN pip install psycopg2
 
 COPY app.py .
 
-CMD /srv/app/app.py
+CMD ["python", "/srv/app/app.py"]
